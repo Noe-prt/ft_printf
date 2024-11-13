@@ -6,7 +6,7 @@
 /*   By: nopareti <nopareti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 15:17:44 by nopareti          #+#    #+#             */
-/*   Updated: 2024/11/10 15:51:07 by nopareti         ###   ########.fr       */
+/*   Updated: 2024/11/13 11:45:38 by nopareti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ int	put_format(va_list args, char type)
 		count += ft_putnbr_custom((int) va_arg(args, int));
 	else if (type == 'c' || type == '%')
 	{
-		ft_putchar_fd((int) va_arg(args, int), 1);
+		if (type == 'c')
+			ft_putchar_fd((int) va_arg(args, int), 1);
+		else
+			ft_putchar_fd('%', 1);
 		count++;
 	}
 	else if (type == 's')
